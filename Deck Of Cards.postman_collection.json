@@ -1,0 +1,1213 @@
+{
+	"info": {
+		"_postman_id": "f0a43c20-5590-4059-b94f-de6d6c47c135",
+		"name": "Deck Of Cards",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33110825"
+	},
+	"item": [
+		{
+			"name": "Shuffle the Cards",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Test to fectch deckId value and set into global variable\r",
+							"pm.test(\"deckid value fetched and saved in deckid\", function () {\r",
+							"    pm.globals.set(\"deckid\", pm.response.json().deck_id);\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}new/shuffle/?deck_count=1",
+					"host": [
+						"{{BaseUrl}}new"
+					],
+					"path": [
+						"shuffle",
+						""
+					],
+					"query": [
+						{
+							"key": "deck_count",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Shuffled cards",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1",
+							"protocol": "https",
+							"host": [
+								"www",
+								"deckofcardsapi",
+								"com"
+							],
+							"path": [
+								"api",
+								"deck",
+								"new",
+								"shuffle",
+								""
+							],
+							"query": [
+								{
+									"key": "deck_count",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 23 Mar 2024 04:36:27 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=WsW6L0j9Z5DNio2xZvshbS4gvsfXVLST1THXvm8LgSojuYnVs9S60o9to05dvOsq22X%2BFeig6AUIIy0hi4HySnb8lAGV7auE8ocZNhGaNCKZ0RT%2BFXwzrLre8hcXYI77QAu%2FTH5mLG3H\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "868bb87848d79b52-FRA"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"deck_id\": \"retz5cqq1io3\",\n    \"remaining\": 52,\n    \"shuffled\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Draw a Card",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}{{deckid}}/draw/?count=2",
+					"host": [
+						"{{BaseUrl}}{{deckid}}"
+					],
+					"path": [
+						"draw",
+						""
+					],
+					"query": [
+						{
+							"key": "count",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Draw a Card",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.deckofcardsapi.com/api/deck/{{deckid}}/draw/?count=2",
+							"protocol": "https",
+							"host": [
+								"www",
+								"deckofcardsapi",
+								"com"
+							],
+							"path": [
+								"api",
+								"deck",
+								"{{deckid}}",
+								"draw",
+								""
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 23 Mar 2024 04:39:16 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=RmP%2Fd6Zg27Db%2F%2FUmZVQMsuyd%2FBwW9kDUCm2f0VgqPeTSyjOP30tzRnpICydYaX2LkufP7Z%2FnrKccuoWElk%2F7neP6QV8FcAf0ltPLla5af%2Bz8uTV15I7nBIReFXscXxwC4hJxJEUuCs9m\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "868bbc95abf29b52-FRA"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"deck_id\": \"retz5cqq1io3\",\n    \"cards\": [\n        {\n            \"code\": \"QD\",\n            \"image\": \"https://deckofcardsapi.com/static/img/QD.png\",\n            \"images\": {\n                \"svg\": \"https://deckofcardsapi.com/static/img/QD.svg\",\n                \"png\": \"https://deckofcardsapi.com/static/img/QD.png\"\n            },\n            \"value\": \"QUEEN\",\n            \"suit\": \"DIAMONDS\"\n        },\n        {\n            \"code\": \"8H\",\n            \"image\": \"https://deckofcardsapi.com/static/img/8H.png\",\n            \"images\": {\n                \"svg\": \"https://deckofcardsapi.com/static/img/8H.svg\",\n                \"png\": \"https://deckofcardsapi.com/static/img/8H.png\"\n            },\n            \"value\": \"8\",\n            \"suit\": \"HEARTS\"\n        }\n    ],\n    \"remaining\": 50\n}"
+				}
+			]
+		},
+		{
+			"name": "Reshuffle the Cards",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}{{deckid}}/shuffle/?remaining=true",
+					"host": [
+						"{{BaseUrl}}{{deckid}}"
+					],
+					"path": [
+						"shuffle",
+						""
+					],
+					"query": [
+						{
+							"key": "remaining",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Reshuffeled",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.deckofcardsapi.com/api/deck/{{deckid}}/shuffle/?remaining=true",
+							"protocol": "https",
+							"host": [
+								"www",
+								"deckofcardsapi",
+								"com"
+							],
+							"path": [
+								"api",
+								"deck",
+								"{{deckid}}",
+								"shuffle",
+								""
+							],
+							"query": [
+								{
+									"key": "remaining",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 23 Mar 2024 04:41:33 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=sKKGroPdvEMWDk9F1omLYhRVSuBdVlQnxnKj6kgk5PbPDaGRwihAQiWvBECQ2Yn3Iew11rlWpB2TutPjYuL6Uc%2BK6dZVSLL%2FYCCMsWPShaPrNUbrDqbhJxkGF4eBbHOO0T20lOBMnowB\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "868bbfeefc7a9b52-FRA"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"deck_id\": \"retz5cqq1io3\",\n    \"remaining\": 50,\n    \"shuffled\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "A Brand New Deck",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Test to fectch deckId value and set into global variable\r",
+							"pm.test(\"deckid value fetched and saved in deckid\", function () {\r",
+							"    pm.globals.set(\"deckid\", pm.response.json().deck_id);\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}new/?jokers_enabled=true",
+					"host": [
+						"{{BaseUrl}}new"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "jokers_enabled",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "A Brand New Deck",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.deckofcardsapi.com/api/deck/new/?jokers_enabled=true",
+							"protocol": "https",
+							"host": [
+								"www",
+								"deckofcardsapi",
+								"com"
+							],
+							"path": [
+								"api",
+								"deck",
+								"new",
+								""
+							],
+							"query": [
+								{
+									"key": "jokers_enabled",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 23 Mar 2024 04:44:15 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=8WrmpqO9wsErfAX8rTsQVnXYDW%2FLD7mEDHBq3M3mfzaQJLKgzW%2Fg8zTCn0B%2BZj7GLY841SuEupg3AtVERDZUefV2Hw65ldwYEFbM0MvQnXj%2FeoDJqaFLBnmKjV%2FblFnYkbw3hMe4p6%2FX\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "868bc3e21d049b52-FRA"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"deck_id\": \"w6nxpoqy7ngz\",\n    \"remaining\": 54,\n    \"shuffled\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "A Partial Deck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}new/shuffle/?cards=AS,2S,KS,AD,2D,KD,AC,2C,KC,AH,2H,KH",
+					"host": [
+						"{{BaseUrl}}new"
+					],
+					"path": [
+						"shuffle",
+						""
+					],
+					"query": [
+						{
+							"key": "cards",
+							"value": "AS,2S,KS,AD,2D,KD,AC,2C,KC,AH,2H,KH"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "A Partial Deck",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.deckofcardsapi.com/api/deck/new/shuffle/?cards=AS,2S,KS,AD,2D,KD,AC,2C,KC,AH,2H,KH",
+							"protocol": "https",
+							"host": [
+								"www",
+								"deckofcardsapi",
+								"com"
+							],
+							"path": [
+								"api",
+								"deck",
+								"new",
+								"shuffle",
+								""
+							],
+							"query": [
+								{
+									"key": "cards",
+									"value": "AS,2S,KS,AD,2D,KD,AC,2C,KC,AH,2H,KH"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 23 Mar 2024 04:46:23 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=DKBBq2c2LKtRQUwbpAhKRg7bJ1EJIUgyx50xbqVDgMVRvez03QcKMdzh7xrA84JFaTwOaPwIFRIZTqKD%2FbD1THPF90MrWVM%2FvHFageyX0jc7KOTV9NdkDevTgyWsjngdwnAWBSVL4tB3\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "868bc6ff8af99b52-FRA"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"deck_id\": \"rd048zve3yxq\",\n    \"remaining\": 12,\n    \"shuffled\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Adding to Piles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}{{deckid}}/pile/{{pile_name}}/add/?cards=AS,2S",
+					"host": [
+						"{{BaseUrl}}{{deckid}}"
+					],
+					"path": [
+						"pile",
+						"{{pile_name}}",
+						"add",
+						""
+					],
+					"query": [
+						{
+							"key": "cards",
+							"value": "AS,2S"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Added to Piles",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.deckofcardsapi.com/api/deck/{{deckid}}/pile/{{pile_name}}/add/?cards=AS,2S",
+							"protocol": "https",
+							"host": [
+								"www",
+								"deckofcardsapi",
+								"com"
+							],
+							"path": [
+								"api",
+								"deck",
+								"{{deckid}}",
+								"pile",
+								"{{pile_name}}",
+								"add",
+								""
+							],
+							"query": [
+								{
+									"key": "cards",
+									"value": "AS,2S"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 29 Mar 2024 11:51:30 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=9Is1HMOcIcsqabsNl2k8EnYYIEiJ0WvBO6uAXB9lHQzrc7i0kFa8pjdvLBAb2xwy%2BvT6T%2B4oPBU2bc6WucWy666oj6qBydVqM3mWdvyCofNwjNB0DSzNQY7XVbdsI70Mn52JjoZvVJPi\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "86bfa5f6ccf83e42-SIN"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"deck_id\": \"retz5cqq1io3\",\n    \"remaining\": 50,\n    \"piles\": {\n        \"SPADES\": {\n            \"remaining\": 0\n        }\n    }\n}"
+				},
+				{
+					"name": "Adding to Piles",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.deckofcardsapi.com/api/deck/{{deckid}}/pile/{{pile_name}}/add/?cards=AS,2S",
+							"protocol": "https",
+							"host": [
+								"www",
+								"deckofcardsapi",
+								"com"
+							],
+							"path": [
+								"api",
+								"deck",
+								"{{deckid}}",
+								"pile",
+								"{{pile_name}}",
+								"add",
+								""
+							],
+							"query": [
+								{
+									"key": "cards",
+									"value": "AS,2S"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 01 May 2024 20:24:18 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=eOCARrNHMOiQchfIMXgMflsSKc7KSmSUtgWSDYQRTyteqzLSLmBi2AK2KQYJ463pToBfjbRbYNkeaw7GU3JCP7hbgi6Af6d%2BVxEnZFxX82E6WXMQeNlAHQ3FcctUaEZcz2gHIaQ4Nwzx\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "87d27e881fb9a8f7-SIN"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"deck_id\": \"dcsdfu2ivyte\",\n    \"remaining\": 54,\n    \"piles\": {\n        \"SPADES\": {\n            \"remaining\": 0\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Shuffle Piles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{BaseUrl}}{{deckid}}/pile/{{pile_name}}/shuffle/"
+			},
+			"response": [
+				{
+					"name": "Shuffled Piles",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "https://www.deckofcardsapi.com/api/deck/{{deckid}}/pile/{{pile_name}}/shuffle/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 01 May 2024 20:26:13 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=WDLtvR5NW%2BKRfuI3arHMgmZjjEx7jC2o%2BlHUt%2FCzdBbvZFI2%2BzRAnQ7hfIgfqr1cmFXTdW%2B8yLpW8aQBrm2H1xW52TPJnoJFE692QfGAaS9V%2F5AKSwFSynjW8ghYQYUzx%2FknftQKHnBw\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "87d281535cdba8f7-SIN"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"deck_id\": \"dcsdfu2ivyte\",\n    \"remaining\": 54,\n    \"piles\": {\n        \"SPADES\": {\n            \"remaining\": 0\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Listing Cards in Piles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{BaseUrl}}{{deckid}}/pile/{{pile_name}}/list/"
+			},
+			"response": [
+				{
+					"name": "Listing Cards in Piles",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "https://www.deckofcardsapi.com/api/deck/{{deckid}}/pile/{{pile_name}}/list/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 29 Mar 2024 11:52:13 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=HDNexbS4MocT4xI0ekVow0TFHU9OLwAAX2kDfRNznPKyzx3P6dqOJPnjmLOAJlC20Lk%2FYKQrbPr3P3qZvwIPe0DkF0a3xgD1yBzyE9l2xLw%2BwUuPKD1dwDloAvrCmDt5apglYNIOaTSo\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "86bfa70ace6a3e42-SIN"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"deck_id\": \"retz5cqq1io3\",\n    \"remaining\": 50,\n    \"piles\": {\n        \"SPADES\": {\n            \"remaining\": 0,\n            \"cards\": []\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Drawing from Piles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}{{deckid}}/pile/{{pile_name}}/draw/?cards=AS",
+					"host": [
+						"{{BaseUrl}}{{deckid}}"
+					],
+					"path": [
+						"pile",
+						"{{pile_name}}",
+						"draw",
+						""
+					],
+					"query": [
+						{
+							"key": "cards",
+							"value": "AS"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Returning cards to the deck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{BaseUrl}}{{deckid}}/return/"
+			},
+			"response": [
+				{
+					"name": "Returned cards to the deck",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}{{deckid}}/return/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 01 May 2024 20:32:50 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=hQRmLADhQV87%2FZmnOMQQj87fnmooikGj8T1DSP%2F92JOatCXSTAswQ6W%2FyRxMVW4Og7KmajDyKe23xQWNVFEnxGtq8iYuQltq8ZKbK2vCxKciW0rF9ZaImgp1MCx3n4XsdBUW6TdGUFC6\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "87d28b07d8934097-SIN"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"deck_id\": \"dcsdfu2ivyte\",\n    \"remaining\": 54\n}"
+				}
+			]
+		},
+		{
+			"name": "Back of Card Image",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://www.deckofcardsapi.com/static/img/back.png"
+			},
+			"response": []
+		}
+	]
+}
