@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "f0a43c20-5590-4059-b94f-de6d6c47c135",
 		"name": "Deck Of Cards",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "33110825"
 	},
 	"item": [
@@ -912,7 +912,18 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "{{BaseUrl}}{{deckid}}/pile/{{pile_name}}/shuffle/"
+				"url": {
+					"raw": "{{BaseUrl}}{{deckid}}/pile/{{pile_name}}/shuffle/",
+					"host": [
+						"{{BaseUrl}}{{deckid}}"
+					],
+					"path": [
+						"pile",
+						"{{pile_name}}",
+						"shuffle",
+						""
+					]
+				}
 			},
 			"response": [
 				{
@@ -920,7 +931,24 @@
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
-						"url": "https://www.deckofcardsapi.com/api/deck/{{deckid}}/pile/{{pile_name}}/shuffle/"
+						"url": {
+							"raw": "https://www.deckofcardsapi.com/api/deck/{{deckid}}/pile/{{pile_name}}/shuffle/",
+							"protocol": "https",
+							"host": [
+								"www",
+								"deckofcardsapi",
+								"com"
+							],
+							"path": [
+								"api",
+								"deck",
+								"{{deckid}}",
+								"pile",
+								"{{pile_name}}",
+								"shuffle",
+								""
+							]
+						}
 					},
 					"status": "OK",
 					"code": 200,
@@ -1001,7 +1029,18 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "{{BaseUrl}}{{deckid}}/pile/{{pile_name}}/list/"
+				"url": {
+					"raw": "{{BaseUrl}}{{deckid}}/pile/{{pile_name}}/list/",
+					"host": [
+						"{{BaseUrl}}{{deckid}}"
+					],
+					"path": [
+						"pile",
+						"{{pile_name}}",
+						"list",
+						""
+					]
+				}
 			},
 			"response": [
 				{
@@ -1009,7 +1048,24 @@
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
-						"url": "https://www.deckofcardsapi.com/api/deck/{{deckid}}/pile/{{pile_name}}/list/"
+						"url": {
+							"raw": "https://www.deckofcardsapi.com/api/deck/{{deckid}}/pile/{{pile_name}}/list/",
+							"protocol": "https",
+							"host": [
+								"www",
+								"deckofcardsapi",
+								"com"
+							],
+							"path": [
+								"api",
+								"deck",
+								"{{deckid}}",
+								"pile",
+								"{{pile_name}}",
+								"list",
+								""
+							]
+						}
 					},
 					"status": "OK",
 					"code": 200,
@@ -1091,7 +1147,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{BaseUrl}}{{deckid}}/pile/{{pile_name}}/draw/?cards=AS",
+					"raw": "{{BaseUrl}}{{deckid}}/pile/{{pile_name}}/draw/?cards=2",
 					"host": [
 						"{{BaseUrl}}{{deckid}}"
 					],
@@ -1104,19 +1160,125 @@
 					"query": [
 						{
 							"key": "cards",
-							"value": "AS"
+							"value": "2"
 						}
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Drawing from Piles",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}{{deckid}}/pile/{{pile_name}}/draw/?cards=2",
+							"host": [
+								"{{BaseUrl}}{{deckid}}"
+							],
+							"path": [
+								"pile",
+								"{{pile_name}}",
+								"draw",
+								""
+							],
+							"query": [
+								{
+									"key": "cards",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 04 May 2024 07:22:16 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=tjW6yJVQ5dPX9AgwpmunnRIuluqg84FOT%2FjB8gBkRBm%2BEf7U1fs6z8tvA%2B9AI4HfLVg0YIIo5lsZ32Ax2rdSK2wlMMAXGhWRIg0kK2rjCxDrHUGT8qLJiQ3qChQW2zUV4sWVm5%2FYQJrJ\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "87e6bd1cbac340dd-SIN"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"deck_id\": \"dcsdfu2ivyte\",\n    \"cards\": [],\n    \"piles\": {\n        \"SPADES\": {\n            \"remaining\": 0\n        }\n    }\n}"
+				}
+			]
 		},
 		{
 			"name": "Returning cards to the deck",
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "{{BaseUrl}}{{deckid}}/return/"
+				"url": {
+					"raw": "{{BaseUrl}}{{deckid}}/return/",
+					"host": [
+						"{{BaseUrl}}{{deckid}}"
+					],
+					"path": [
+						"return",
+						""
+					]
+				}
 			},
 			"response": [
 				{
@@ -1124,7 +1286,16 @@
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
-						"url": "{{BaseUrl}}{{deckid}}/return/"
+						"url": {
+							"raw": "{{BaseUrl}}{{deckid}}/return/",
+							"host": [
+								"{{BaseUrl}}{{deckid}}"
+							],
+							"path": [
+								"return",
+								""
+							]
+						}
 					},
 					"status": "OK",
 					"code": 200,
@@ -1205,7 +1376,20 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "https://www.deckofcardsapi.com/static/img/back.png"
+				"url": {
+					"raw": "https://www.deckofcardsapi.com/static/img/back.png",
+					"protocol": "https",
+					"host": [
+						"www",
+						"deckofcardsapi",
+						"com"
+					],
+					"path": [
+						"static",
+						"img",
+						"back.png"
+					]
+				}
 			},
 			"response": []
 		}
